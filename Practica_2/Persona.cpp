@@ -18,7 +18,8 @@ Persona::Persona(const char* elName, int laEdad){
 }
 
 Persona::~Persona(){
-	if (name != nullptr) {
+	if (name != nullptr) 
+	{
 		cout << "Adios, " << name << endl;
 		free(name);
 	}

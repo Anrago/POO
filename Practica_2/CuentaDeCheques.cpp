@@ -10,9 +10,11 @@ CuentaDeCheques::CuentaDeCheques(int ELnumeroDeCuenta,float ELsaldo, Persona ELp
 CuentaDeCheques::~CuentaDeCheques()
 {
     if (UltimoMovimiento!=nullptr)
+    {
+        cout<<"Adios ULTIMO MOVIMIENTO"<<endl;
         free(UltimoMovimiento);    
+    }
 }
-
 void CuentaDeCheques::depositar(float cantidad)
 {
     if(cantidad>0)
@@ -48,16 +50,24 @@ void CuentaDeCheques::retirar(float cantidad)
 void CuentaDeCheques::transferir(float cantidad, CuentaDeCheques* destino)
 {
         
-        
-            destino->saldo+=cantidad;
-            saldo-=cantidad;
-        
-     
+    if(cantidad<=saldo)
+    {
+        destino->saldo+=cantidad;
+        saldo-=cantidad;
+    }
+    else
+    {
+        cout << "***********************************" <<endl;
+        cout << "SALDO INSUFICIENTE PARA REALIZAR EL MOVIMIENTO" <<endl;
+        cout << "***********************************" <<endl;
+    
+    }
 }
 
 void CuentaDeCheques::estadoDeCuenta()
 {
     cout <<"********************************" << endl;
+    cout << "Estado de cuenta" << endl;
     cout << "Numero de la cuenta " << numeroDeCuenta << endl;
     cout << "Saldo Actual: " << saldo << endl;
     cout << "Fecha del ultimo movimiento: " << UltimoMovimiento << endl;

@@ -17,4 +17,11 @@ int main()
     Cuenta1->transferir(100,Cuenta2);
 
     Cuenta1->estadoDeCuenta();
+    Cuenta2->estadoDeCuenta();
+
+    free(Cuenta1);
+    free(Cuenta2);
+    free(Propietario1);
+    free(Propietario2);
+    
 }
