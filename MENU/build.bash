@@ -1,0 +1,1 @@
+g++ -o main.exe main.cpp Menu.cpp Opcion.cpp  && ./main.exe
