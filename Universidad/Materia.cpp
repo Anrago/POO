@@ -31,15 +31,9 @@ string Materia::ToString() const
         out << "Opt ";
     switch (etapa)
     {
-    case BASICA:
-        out << "Basica";
-        break;
-    case DISCIPLINARIA:
-        out << "Diciplinaria";
-        break;
-    case TERMINAL:
-        out << "Terminal";
-        break;
+    case BASICA:out << "Basica"; break;
+    case DISCIPLINARIA:out << "Diciplinaria";break;
+    case TERMINAL:out << "Terminal";break;
     }
 
     return out.str();

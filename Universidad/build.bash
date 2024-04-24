@@ -1,1 +1,1 @@
-g++ -o main.exe main.cpp Materia.cpp && ./main.exe
+g++ -o main.exe main.cpp Materia.cpp Kardex.cpp Estudiante.cpp Universidad.cpp && ./main.exe

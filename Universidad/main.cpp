@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-#include "Materia.h"
+#include "Universidad.h"
 using std::cin;
 using std::cout;
 using std::endl;
@@ -12,15 +12,14 @@ using std::setw;
 
 int main()
 {
-    Materia m1(12349, "Programacion", 7, true, Materia::Etapa::BASICA);
-    Materia m2(23456, "Estadistica Avanzada", 6, true, Materia::Etapa::BASICA);
+    Universidad uni;
+    uni.RegistrarEstudainte("Jose Martinez", "Tronco comun");
+    uni.RegistrarEstudainte("Daniela Lara", "Tronco comun");
+    uni.RegistrarEstudainte("Elizabet perez", "Ing. computacion");
+    uni.ReporteEstudiante();
 
-    cout << setw(6) << "Clave ";
-    cout << setw(50) << left << "Nombre ";
-    cout << setw(8) << left << "Creditos ";
-    cout << setw(4) << left <<"Tipo ";
-    cout << "Etapa"<< endl;
-
-    cout <<m1.ToString()<<endl;
-    cout <<m2.ToString()<<endl;
+    uni.RegistrarMateria("Algebra superior",7);
+    uni.RegistrarMateria("COE",5);
+    uni.RegistrarMateria("ATE",7);
+    uni.RegistrarMateria("POO",8);
 }
