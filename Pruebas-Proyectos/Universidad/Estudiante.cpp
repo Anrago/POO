@@ -23,3 +23,4 @@ string Estudiante::ToString() const
     out << carrera;
     return out.str();
 }
+
