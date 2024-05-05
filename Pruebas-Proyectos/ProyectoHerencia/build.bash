@@ -1,1 +1,1 @@
-g++ -o main.exe main.cpp Persona.cpp Estudinate.cpp Profesionista.cpp&& ./main.exe
+g++ -o main.exe main.cpp Persona.cpp Estudinate.cpp Profesionista.cpp Ingeniero.cpp IngSoftware IngCivil.cpp && ./main.exe

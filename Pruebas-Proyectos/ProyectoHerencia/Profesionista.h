@@ -15,7 +15,7 @@ protected:
 public:
     Profesionista();
     Profesionista(string nombre, string cedula="De Tepito", int edad=25, int aniosExp=3);
-    void Trabajar();
+    virtual void Trabajar();
     //Sobreescritura de saludar
 
     //El calidicador ocerrude surve para marcar metodos que
