@@ -1,0 +1,1 @@
+g++ -o main.exe main.cpp Banco.cpp CuentaDeCheques.cpp CuentaHabiente.cpp Menu.cpp Opcion.cpp && ./main.exe
