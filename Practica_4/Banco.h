@@ -17,11 +17,12 @@ public:
     Banco();
     ~Banco();
     CuentaHabiente *CrearCuentaHabiente(string Nombre, string Curp);
-    CuentaDeCheques *CrearCuentaDeCheques(CuentaHabiente Propietario,float saldo);
-    void ObtenerCuenta();
-    void ObtenerCuentaCheques();
+    CuentaDeCheques *CrearCuentaDeCheques(int NumeroCh,float saldo);
+    CuentaHabiente *GetHabiente(int NumeroCh){return C_Habientes[NumeroCh];};
+    CuentaDeCheques *GetCheques(int NumeroC){return C_Cheques[NumeroC];};
+    void ImprimirReporte(int NumeroCh);
     void Depositar(int NumeroCuentaC,float Cantidad);
     void Retirar(int NumeroCuentaC,float Cantidad);
-    void Transferir(int Origen, int Destino, float Cantidad);
+    void Transferir(CuentaDeCheques *Origen, CuentaDeCheques *Destino, float Cantidad);
 };
 

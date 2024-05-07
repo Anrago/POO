@@ -1,6 +1,13 @@
 #include "Opcion.h"
 #include <string>
 #include <map>
+
+#ifdef _WIN32
+    #define CLEAR_SCREEN "cls"
+#else
+    #define CLEAR_SCREEN "clear"
+#endif
+
 using std::map;
 using std::string;
 

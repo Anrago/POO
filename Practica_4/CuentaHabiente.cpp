@@ -19,6 +19,8 @@ void CuentaHabiente::ImprimirReporte()
     cout << "NOMBRE CUENTAHABIENTE: " << Nombre << endl;
     cout << "CURP CUENTAHABIENTE: " << Curp << endl;
 
+    cout << "<<<<<<<<<<<<<CUENTAS DE CHEQUES>>>>>>>>>>>>>>>>>"<< endl;
+    cout << "No. cuenta | Saldo | Fecha del ultimo movimiento" << endl;
     for (auto Ch:misCuentas)
     {
         Ch->estadoDeCuenta();

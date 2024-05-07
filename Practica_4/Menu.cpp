@@ -1,5 +1,8 @@
 #include "Menu.h"
 #include <iostream>
+
+
+
 using std::cin;
 using std::cout;
 using std::endl;
@@ -32,6 +35,7 @@ void Menu::Desplegar()
 {
     cout << titulo << endl;
     // Desplegamos las opciones
+    system(CLEAR_SCREEN);
     for (auto &par : opciones)
     {
         par.second.Desplegar();

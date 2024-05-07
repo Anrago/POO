@@ -17,7 +17,7 @@ public:
     CuentaDeCheques(int ELnumeroDeCuenta,float ELsaldo);
     void depositar(float cantidad);
     void retirar(float cantidad);
-    void transferir(float cantidad, CuentaDeCheques destino);
+    void transferir(float cantidad, CuentaDeCheques *destino);
     void estadoDeCuenta();
 };
 
