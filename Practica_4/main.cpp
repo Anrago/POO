@@ -1,6 +1,12 @@
+// Alumno: Antonio Ramos Gonzalez
+// Matricula: 372576
+// Practica 4: Composicion y agregacion
+// Fecha: 04/05/2024 | 07/05/2024
+
 #include "Banco.h"
 #include "Menu.h"
 using std::cin;
+using std::getline;
 void EnElBanco();
 void CrearHabiente(Banco *BanCoppel);
 void CrearCheque(Banco *BanCoppel);
@@ -14,14 +20,10 @@ int main()
 {
     Menu menu;
     menu.Agregar({'1', "Ingresar al banco", EnElBanco});
-    menu.Agregar({
-        '2',
-        "No ingresar e irme ",
-    });
-    do
-    {
-        menu.Ejecutar();
-    } while (menu.Seleccionar() != '2');
+    menu.Agregar({'2',
+                  "No ingresar e irme "});
+    menu.SetExitKey('2');
+    menu.Ejecutar();
 
     return 0;
 }
@@ -32,48 +34,48 @@ void EnElBanco()
 {
     Banco BanCoppel;
     Menu menuBanco;
-    BanCoppel.CrearCuentaHabiente("Antonio", "RAGA031004RMN16");
+    BanCoppel.CrearCuentaHabiente("Ana Maria Garcia Lopez", "GALA940502MDFRPN07");
+    BanCoppel.CrearCuentaHabiente("Javier Rodriguez Perez", "ROJP940704HDFXVR03");
+    BanCoppel.CrearCuentaHabiente("Sofia Martinez Hernandez", " MAHS980301MDFRTS09");
+    BanCoppel.CrearCuentaHabiente("Carlos Hernandez Gomez", "HEGC000630HDFLMZ01");
     BanCoppel.CrearCuentaDeCheques(30001, 1000);
-    BanCoppel.CrearCuentaHabiente("DIANA", "RAGD031004RMN16");
     BanCoppel.CrearCuentaDeCheques(30001, 500);
+    BanCoppel.CrearCuentaDeCheques(30002, 10000);
+    BanCoppel.CrearCuentaDeCheques(30002, 6025);
+    BanCoppel.CrearCuentaDeCheques(30003, 12.59);
+    BanCoppel.CrearCuentaDeCheques(30004, 52600);
+    system(CLEAR_SCREEN);
+    cout << "Existen cuentas habientes de 30001 hasta 30004" << endl;
+    cout << "Existen cuentas de cheques de 10001 hasta 10006" << endl;
+    Pause();
     menuBanco.Agregar({'1', "CREAR CUENTA HABIENTE", [&BanCoppel]()
                        { CrearHabiente(&BanCoppel); }});
     menuBanco.Agregar({'2',
                        "CREAR CUENTA DE CHEQUES", [&BanCoppel]()
                        { CrearCheque(&BanCoppel); }});
-    menuBanco.Agregar({
-        '3',
-        "OBTENER CUENTA HABIENTE",
-    });
-    menuBanco.Agregar({
-        '4',
-        "OBTENER CUENTA DE CHEQUES",
-    });
-    menuBanco.Agregar({'5',
+    menuBanco.Agregar({'3',
                        "IMPRIMIR REPORTE", [&BanCoppel]()
                        {
                            ImprimirReporte(&BanCoppel);
                        }});
-    menuBanco.Agregar({'6',
+    menuBanco.Agregar({'4',
                        "DEPOSITAR", [&BanCoppel]()
                        {
                            Depositar(&BanCoppel);
                        }});
-    menuBanco.Agregar({'7',
+    menuBanco.Agregar({'5',
                        "RETIRAR", [&BanCoppel]()
                        {
                            Retirar(&BanCoppel);
                        }});
-    menuBanco.Agregar({'8',
+    menuBanco.Agregar({'6',
                        "TRANSFERIR", [&BanCoppel]()
                        {
                            Transferir(&BanCoppel);
                        }});
-    menuBanco.Agregar({'0', "SALIR"});
-    do
-    {
-        menuBanco.Ejecutar();
-    } while (menuBanco.Seleccionar() != 'x');
+    menuBanco.Agregar({'7', "SALIR"});
+    menuBanco.SetExitKey('7');
+    menuBanco.Ejecutar();
 }
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<,FUNCIONES PARA BANCO>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -83,13 +85,12 @@ void CrearHabiente(Banco *BanCoppel)
     string nombre, curp;
     system(CLEAR_SCREEN);
     cout << "INGRESA NOMBRE: ";
-    cin >> nombre;
+    getline(cin, nombre);
     do
     {
         cout << "INGRESA CURP : ";
-        cin >> curp;
+        getline(cin, curp);
     } while (curp.length() < 16);
-    Pause();
     system(CLEAR_SCREEN);
     BanCoppel->CrearCuentaHabiente(nombre, curp);
     Pause();
@@ -157,6 +158,7 @@ void Transferir(Banco *BanCoppel)
     int NcOrigen, NcDestino;
     float Monto;
     CuentaDeCheques *Origen, *Destino;
+    system(CLEAR_SCREEN);
     cout << "INGRESE NUMERO DE CUENTA ORIGEN: ";
     cin >> NcOrigen;
     cout << "INGRESE NUMERO DE CUENTA DESTINO: ";
@@ -165,13 +167,17 @@ void Transferir(Banco *BanCoppel)
     cin >> Monto;
     Origen = BanCoppel->GetCheques(NcOrigen);
     Destino = BanCoppel->GetCheques(NcDestino);
+    Pause();
+    system(CLEAR_SCREEN);
     if (Origen != nullptr && Destino != nullptr)
     {
         BanCoppel->Transferir(Origen, Destino, Monto);
     }
     else
-        cout << "HUBO UN PROBLEMA DURANTE LA TRANSFERENCIA";
-
+    {
+        cout << "HUBO UN PROBLEMA DURANTE LA TRANSFERENCIA" << endl;
+    }
+    Pause();
 }
 
 void Pause()

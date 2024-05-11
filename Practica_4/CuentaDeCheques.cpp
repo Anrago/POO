@@ -10,6 +10,8 @@ CuentaDeCheques::CuentaDeCheques(int ELnumeroDeCuenta, float ELsaldo)
 {
     numeroDeCuenta = ELnumeroDeCuenta;
     saldo = ELsaldo;
+    cout << "FELICIDADES LA CUENTA DE CHEQUES SE HA CREADO EXITOSAMENTE" << endl;
+    cout << "SU NUMERO DE CUENTA ES: " << ELnumeroDeCuenta << endl;
 }
 
 void CuentaDeCheques::depositar(float cantidad)
@@ -19,6 +21,7 @@ void CuentaDeCheques::depositar(float cantidad)
         saldo += cantidad;
         tiempoUltimoMovimiento = time(0);
         UltimoMovimiento = ctime(&tiempoUltimoMovimiento);
+        cout << "DEPOSITO EXITOSO" << endl;
     }
     else
     {
@@ -35,6 +38,7 @@ void CuentaDeCheques::retirar(float cantidad)
         saldo -= cantidad;
         tiempoUltimoMovimiento = time(0);
         UltimoMovimiento = ctime(&tiempoUltimoMovimiento);
+        cout << "RETIRO EXITOSO" << endl;
     }
     else
     {
@@ -51,6 +55,7 @@ void CuentaDeCheques::transferir(float cantidad, CuentaDeCheques *destino)
     {
         destino->saldo += cantidad;
         saldo -= cantidad;
+        cout << "TRANSFERENCIA REALIZADA CON EXITO" << endl;
     }
     else
     {

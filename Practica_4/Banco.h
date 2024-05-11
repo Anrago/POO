@@ -18,8 +18,8 @@ public:
     ~Banco();
     CuentaHabiente *CrearCuentaHabiente(string Nombre, string Curp);
     CuentaDeCheques *CrearCuentaDeCheques(int NumeroCh,float saldo);
-    CuentaHabiente *GetHabiente(int NumeroCh){return C_Habientes[NumeroCh];};
-    CuentaDeCheques *GetCheques(int NumeroC){return C_Cheques[NumeroC];};
+    CuentaHabiente *GetHabiente(int NumeroCh);
+    CuentaDeCheques *GetCheques(int NumeroC);
     void ImprimirReporte(int NumeroCh);
     void Depositar(int NumeroCuentaC,float Cantidad);
     void Retirar(int NumeroCuentaC,float Cantidad);

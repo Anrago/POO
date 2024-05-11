@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <ctime>
 #pragma once
 using std::string;
 using std::cout;
@@ -9,7 +10,7 @@ class CuentaDeCheques
 protected:
     int numeroDeCuenta;
     float saldo;
-    time_t tiempoUltimoMovimiento=time(0);
+    time_t tiempoUltimoMovimiento=time(NULL);
     string UltimoMovimiento=ctime(&tiempoUltimoMovimiento);
     
     
